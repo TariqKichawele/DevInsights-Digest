@@ -8,7 +8,7 @@ export const updateUser = async (req, res, next) => {
         return next(errorHandler('Unauthorized', 403));
     }
 
-    if(req.body.passowrd) {
+    if(req.body.password) {
         if(req.body.password.length < 6) {
             return next(errorHandler('Password must be at least 6 characters', 400));
         }
@@ -30,21 +30,20 @@ export const updateUser = async (req, res, next) => {
               errorHandler(400, 'Username can only contain letters and numbers')
             );
         }
+    }
 
-        try {
-            const updatedUser =  await User.findByIdAndUpdate(req.params.userId, {
-                $set: {
-                    username: req.body.username,
-                    email: req.body.email,
-                    profilePicture: req.body.profilePicture,
-                    password: req.body.password,
-                }
-            }, { new: true });
-            const { password, ...rest } = updatedUser._doc;
-            res.status(200).json(rest);
-        } catch (error) {
-            next(error);
-        }
-
+    try {
+        const updatedUser =  await User.findByIdAndUpdate(req.params.userId, {
+            $set: {
+                username: req.body.username,
+                email: req.body.email,
+                profilePicture: req.body.profilePicture,
+                password: req.body.password,
+            }
+        }, { new: true });
+        const { password, ...rest } = updatedUser._doc;
+        res.status(200).json(rest);
+    } catch (error) {
+        next(error);
     }
 }
