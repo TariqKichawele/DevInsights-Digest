@@ -30,13 +30,13 @@ export const signin = async (req, res, next) => {
     const { email, password } = req.body;
 
     if(!email || !password) {
-       return next(errorHandler(400, 'All fields are required'));
+       return next(errorHandler(404, 'All fields are required'));
     }
 
     try {
         const validUser = await User.findOne({ email });
         if(!validUser) {
-           return next(errorHandler(400, 'Invalid credentials'));
+           return next(errorHandler(404, 'User not found'));
         }
 
         const validPassword = bcryptjs.compareSync(password, validUser.password);

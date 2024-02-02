@@ -119,7 +119,10 @@ export default function DashProfile() {
 
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <input type="file" accept="image/*" onChange={handleImage} ref={fileRef} hidden/>
-            <div className="relative w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full" onClick={() => fileRef.current.click()}>
+            <div 
+                className="relative w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full" 
+                onClick={() => fileRef.current.click()}
+            >
                 {imageFileUploadProgress && (
                     <CircularProgressbar 
                         value={imageFileUploadProgress || 0} 
@@ -145,7 +148,7 @@ export default function DashProfile() {
                 <img 
                     src={imageFileUrl || currentUser.profilePicture} 
                     alt="user"
-                    className={`rounded-full w-full h-full border-8 border-[lightgray] ${
+                    className={`rounded-full w-full h-full object-cover border-8 border-[lightgray] ${
                         imageFileUploadProgress && imageFileUploadProgress < 100 && 'opacity-60'
                     }`}
                 />
