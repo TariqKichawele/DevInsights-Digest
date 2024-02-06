@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import UserRoute from './routes/UserRoute.js';
 import AuthRoute from './routes/AuthRoute.js';
 import PostRoute from './routes/PostRoute.js';
+import CommentRoute from './routes/CommentRoute.js';
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
@@ -28,6 +29,7 @@ app.listen(3008, () => {
 app.use('/api/user', UserRoute);
 app.use('/api/auth', AuthRoute);    
 app.use('/api/post', PostRoute);
+app.use('/api/comment', CommentRoute);
 
 // Error handling
 app.use((err, req, res, next) => {
