@@ -164,7 +164,7 @@ export default function DashProfile() {
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <input type="file" accept="image/*" onChange={handleImage} ref={fileRef} hidden/>
             <div 
-                className="relative w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full" 
+                className="relative w-32 h-42 self-center cursor-pointer shadow-md overflow-hidden rounded-full" 
                 onClick={() => fileRef.current.click()}
             >
                 {imageFileUploadProgress && (

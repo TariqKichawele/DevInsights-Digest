@@ -14,12 +14,14 @@ export default function CreatePost() {
     const [ imageUploadError, setImageUploadError ] = useState(null);
     const [ formData, setFormData ] = useState({});
     const [ publishError, setPublishError ] = useState(null);
+
     const navigate = useNavigate();
 
     const handleUploadImage = async () => {
         try {
             if(!file){
-                setImageUploadError(null)
+                setImageUploadError('please select an image');
+                return;
             } 
             const storage = getStorage(app);
             const fileName = new Date().getTime() + '-' + file.name;
@@ -88,10 +90,10 @@ export default function CreatePost() {
                     onChange={(e) => setFormData({...formData, title: e.target.value})}
                 />
                 <Select onChange={(e) => setFormData({ ...formData, category: e.target.value })}>
-                    <option value={'uncategorized'}>Select a category</option>
-                    <option value="Javascript">JavaScript</option>
-                    <option value="Python">Python</option>
-                    <option value="React">React</option>
+                    <option value='uncategorized'>Select a category</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="react">React</option>
                 </Select>
             </div>
             <div className="p-3 flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted">
