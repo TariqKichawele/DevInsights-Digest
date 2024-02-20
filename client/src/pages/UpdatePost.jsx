@@ -120,6 +120,8 @@ export default function UpdatePost() {
                     <option value="Javascript">JavaScript</option>
                     <option value="Python">Python</option>
                     <option value="React">React</option>
+                    <option value="Html">HTML</option>
+                    <option value="Css">CSS</option>
                 </Select>
             </div>
             <div className="p-3 flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted">

@@ -94,6 +94,8 @@ export default function CreatePost() {
                     <option value="javascript">JavaScript</option>
                     <option value="python">Python</option>
                     <option value="react">React</option>
+                    <option value="Html">HTML</option>
+                    <option value="css">CSS</option>
                 </Select>
             </div>
             <div className="p-3 flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted">
