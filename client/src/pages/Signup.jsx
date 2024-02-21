@@ -56,13 +56,13 @@ export default function Signup() {
               <span 
                 className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white text-4xl'
               >
-                Tariq&apos;s
+                DevInsights
               </span>
-              Blog
+              Digest
           </Link>
           <p className="text-sm mt-5 leading-6">
-            Welcome to Tariq&apos;s - Your Gateway to Insightful Stories and Inspiration
-            At Tariq&apos;s, we believe in the power of stories to captivate, inspire, 
+            Welcome to DevInsights - Your Gateway to Insightful Stories and Inspiration
+            At DevInsights, we believe in the power of stories to captivate, inspire, 
             and connect us. Our digital haven is a space where narratives unfold, 
             ideas come to life, and readers embark on a journey of discovery.
           </p>
