@@ -6,6 +6,7 @@ import AuthRoute from './routes/AuthRoute.js';
 import PostRoute from './routes/PostRoute.js';
 import CommentRoute from './routes/CommentRoute.js';
 import cookieParser from 'cookie-parser';
+import path from 'path';
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ mongoose
     }).catch(() => {
     console.log('Connection failed');
 });
+
+const __dirname = path.resolve();
 
 const app = express();
 
@@ -30,6 +33,12 @@ app.use('/api/user', UserRoute);
 app.use('/api/auth', AuthRoute);    
 app.use('/api/post', PostRoute);
 app.use('/api/comment', CommentRoute);
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client' , 'dist', 'index.html'));
+});
 
 // Error handling
 app.use((err, req, res, next) => {
