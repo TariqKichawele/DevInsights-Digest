@@ -10,15 +10,6 @@ import path from 'path';
 
 dotenv.config();
 
-mongoose
-    .connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log('Connected to database')
-    })
-    .catch(() => {
-        console.log('Connection failed')
-    });
-
 const __dirname = path.resolve();
 
 const app = express();
@@ -29,6 +20,15 @@ app.use(cookieParser());
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
+
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log('Connected to database')
+    })
+    .catch(() => {
+        console.log('Connection failed')
+    });
 
 app.use('/api/user', UserRoute);
 app.use('/api/auth', AuthRoute);    
